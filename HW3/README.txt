@@ -1,1 +1,1 @@
-Submission Folder for Homework 3
+Folder for Homework 3
