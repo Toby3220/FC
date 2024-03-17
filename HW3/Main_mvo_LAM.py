@@ -33,7 +33,6 @@ Vc = Data.cov()
 U = pd.Series(1,index = Mu.index)
 n = Mu.shape[0]
 
-strategy = 'Bounded long/short with cash'
 #
 if(strategy=='long/short'):
     w0,w,lambda1,lambda2=mvo_strategies.mvoLS(n,Mu.tolist(),Vc.values.tolist(),U.tolist(),portmean)
