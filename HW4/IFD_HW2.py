@@ -132,11 +132,17 @@ class IFDEuropeanKOCall_VolSurface (IFDEuropeanKOCall):
         v = max(self.VolSurface[St,t],0) 
         return math.sqrt(v)
  
-class IFDEuropeanKOCall_CappedVolSurface(IFDEuropeanKOCall_VolSurface):
+class IFDEuropeanKOCall_BoundedVolSurface(IFDEuropeanKOCall_VolSurface):
+    def __init__(self, riskfree, imax, jmax, dprice, local_vol_surface,max_val, min_val) -> None:
+        self.max_val = max_val
+        self.min_val = min_val
+        super().__init__(riskfree, imax, jmax, dprice, local_vol_surface)
     def curr_sigma(self, St, t):
         t = round(t,self.prec)
-        v = max(self.VolSurface[St,t],0) 
-        v = min(v,3)
+
+        # min_val <= v <= max_val
+        v = max(self.VolSurface[St,t],self.min_val) 
+        v = min(v,self.max_val)
         return math.sqrt(v)
 
 #----------------------------------------------------------------------------------

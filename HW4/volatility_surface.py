@@ -283,6 +283,7 @@ class CubicSplineSurface:
         data = self.params["data"]
         out = pd.DataFrame(data.loc[:,["Strike","T","ImpVol"]])
         out.loc[:,"EstImpVol"] = np.nan
+        out.loc[:,"EstLocalVol"]=np.nan
 
         # evaluate and store implied vol at each point
         for indexval in tqdm(data.index):
@@ -290,7 +291,10 @@ class CubicSplineSurface:
             time = data.loc[indexval,"T"]
         
             imp_vol = self.eval_imp_vol(price,time)
+            local_val = self.eval_local_vol(price,time)
             out.loc[indexval,"EstImpVol"] = imp_vol
+            out.loc[indexval,"EstLocalVol"] = local_val
+            
         return out
     
     
