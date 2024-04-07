@@ -71,21 +71,23 @@ class CubicSplineSurface:
         #the pointer that points to the left hand knot (shoter in maturity) of the relavent cubic spline
         bounds = self.maturities
         
-        if  (target < bounds[lp]):
+        if  (target < bounds[0]):
             return -1
-        elif (bounds[rp+1] < target):
+        elif (bounds[self.pointer_lim+1] < target):
             return -2
+        elif (target == bounds[lp]):
+            return lp
             
-        if  (bounds[lp] <= target) and (target <=bounds[lp+1]):
+        if  (bounds[lp] <= target) and (target < bounds[lp+1]):
             return lp
         
-        elif  (bounds[rp] <= target) and (target <=bounds[rp+1]):
+        elif  (bounds[rp] <= target) and (target <= bounds[rp+1]):
             return rp
             
         else:
             trial = (lp+rp)//2
             if target < bounds[trial]:
-                return self._bucket_binary_search(target,lp,trial)
+                return self._bucket_binary_search(target,lp,trial-1)
             else: 
                 return self._bucket_binary_search(target,trial,rp)
     
