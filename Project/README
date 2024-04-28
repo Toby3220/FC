@@ -1,7 +1,8 @@
 project submission
 
-Project.ipybn file can be read on github, as semi interative file, like a PDF
-have also taken a screen capture of this in the pdf submission
+project.pdf file contains a short introduction and the screen capture of project.ipybn
 
-have also supplied, an simplified and executable version of the code in lsmc_american_put.py
-together with all other files and codes 
+Project.ipybn file contains most of the code as well as some write up. it can be read on github, as semi interactive file, with both code, code outputs, as well as diagrams. can also be read here as a backup https://jsvine.github.io/nbpreview/
+a screen capture of this is also in the pdf
+
+Lastly, have also supplied, a simplified and executable version of the code in lsmc_american_put.py together with all other requred files files  
