@@ -12,3 +12,4 @@ Submission Status:
 - Homework 3 : Submitted at FC/HW3
 - Homework 4 : Submitted at FC/HW4
 - Homework 5 : Submitted at FC/HW5
+- Project    : Submitted at FC/Project
